@@ -1,0 +1,31 @@
+.LightMidi .canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+.LightMidi .note {
+    position: fixed;
+    display: block;
+    border-radius: 100%;
+    width: calc(min(var(--width) * 0.02px, var(--height) * 0.015px));
+    height: calc(min(var(--width) * 0.02px, var(--height) * 0.015px));
+    --hue: 0;
+    --velocity: 0;
+    outline: thin black solid;
+    background-color: hsl(calc(360deg * var(--hue)) 10% 5%);
+    transform: translateX(-50%) translateY(-50%);
+}
+.LightMidi .note.pressed {
+    outline: thin transparent solid;
+    background-color: hsl(calc(1turn * var(--hue)) 100% calc(100% * var(--velocity)));
+}
+.LightMidi_notes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: calc(19 * var(--size));
+}
