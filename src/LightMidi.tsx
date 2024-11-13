@@ -1,4 +1,4 @@
-import Gooey, { calc, collection, field, model, ref } from '@srhazi/gooey';
+import Gooey, { calc, field, model, ref } from '@srhazi/gooey';
 import type { Component, Field } from '@srhazi/gooey';
 
 import './LightMidi.css';
@@ -212,7 +212,6 @@ export const LightMidi: Component<{
         return active;
     });
     const sustain = field(false);
-    const notes = collection<Uint8Array>([]);
     const onMessage = (e: MIDIMessageEvent) => {
         if (e.data) {
             if (e.data.length === 1 && e.data[0] === 248) {
@@ -250,7 +249,6 @@ export const LightMidi: Component<{
                     }
                 }
             }
-            notes.push(e.data);
         }
     };
     onMount(() => {
